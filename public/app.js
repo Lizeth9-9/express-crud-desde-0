@@ -32,13 +32,18 @@ async function CargarPeliculas() {
 }
 
 peliculasCaja.addEventListener('click', (event) => {
-    if (event.target.closest('.editar')) {
-        const peliculaId = event.target.closest('.editar').dataset.id;
-        const pelicula = peliculas.find(p => p.id === Number(peliculaId));
-        mostrarFormularioPelicula(pelicula);
-    }
+const accionbtn = event.target.closest('.accion');
+/*si no se hizo clicc en un botón de acción, salir de la función*/
+if (!accionbtn) return;
 
+const peliculaId = accionbtn.dataset.id;
 
+if (accionbtn.classList.contains('editar')) {
+mostrarFormularioPelicula(peliculaId);
+return;
+}
+  
+});
 
 
 // desde del formulario
