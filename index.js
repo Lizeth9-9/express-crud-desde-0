@@ -59,6 +59,6 @@ app.post('editar/pelicula', (req, res) => {
     peliculas[peliculaIndex] = { id: Number(id), titulo, director, anio: Number(anio) };
 
     res.redirect('/?edited=1');  //redirigir a la página principal con un parámetro de consulta para indicar que se editó una película
-
-
 });
+
+

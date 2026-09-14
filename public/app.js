@@ -28,4 +28,4 @@ async function CargarPeliculas() {
     }
 }
 
-
+fuction mostrarFormularioPelicula(pelicula) {
