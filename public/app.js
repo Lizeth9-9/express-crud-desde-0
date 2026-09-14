@@ -1,4 +1,5 @@
 /* Función para cargar las películas desde la API */
+const peliculasCaja = document.querySelector('.caja-peliculas');
 
 async function CargarPeliculas() {
     peliculasCaja.innerHTML = '';
@@ -30,8 +31,23 @@ async function CargarPeliculas() {
     }
 }
 
+peliculasCaja.addEventListener('click', (event) => {
+    if (event.target.closest('.editar')) {
+        const peliculaId = event.target.closest('.editar').dataset.id;
+        const pelicula = peliculas.find(p => p.id === Number(peliculaId));
+        mostrarFormularioPelicula(pelicula);
+    }
+
+
+
+
 // desde del formulario
 function mostrarFormularioPelicula(pelicula) {
     
+    
 
 }   
+
+
+
+CargarPeliculas();

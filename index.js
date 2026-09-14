@@ -26,7 +26,7 @@ app.get('/api/peliculas', (req, res) => {
     res.json(peliculas);
 });
 
-app.post('/anadir/pelicula', (req, res) => {
+app.post('/anadir-pelicula', (req, res) => {
     const { titulo, director, anio } = req.body; //Recibe los datos de una nueva película desde un formulario
 
     if (!titulo || !director || !anio) {
@@ -39,11 +39,7 @@ app.post('/anadir/pelicula', (req, res) => {
     res.redirect('/?added=1');  //redirigir a la página principal con un parámetro de consulta para indicar que se añadió una película
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
-
-app.post('editar/pelicula', (req, res) => {
+app.post('/editar-pelicula', (req, res) => {
     const { id, titulo, director, anio } = req.body;
 
     if (!id || !titulo || !director || !anio) {
@@ -61,4 +57,26 @@ app.post('editar/pelicula', (req, res) => {
     res.redirect('/?edited=1');  //redirigir a la página principal con un parámetro de consulta para indicar que se editó una película
 });
 
+app.delete('/eliminar-pelicula', (req, res) => {
+    const { id } = req.body; //Recibe el id de la película a eliminar desde el body de la solicitud DELETE
 
+    if (!id) {
+        return res.status(400).json({ error: 'ID de película es obligatorio' });
+    }
+    const peliculaIndex = peliculas.findIndex(pelicula => pelicula.id === Number(id));
+if (peliculaIndex === -1)
+{
+        return res.status(404).json({ error: 'Película no encontrada' });
+}
+
+
+const peliculaEliminada = peliculas.splice(peliculaIndex, 1)[0]; //Elimina la película del array y devuelve la película eliminada
+     res.json ({ message: 'Película eliminada correctamente', pelicula: peliculaEliminada });
+});
+
+
+
+
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
