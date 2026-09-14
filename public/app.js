@@ -1,3 +1,5 @@
+/* Función para cargar las películas desde la API */
+
 async function CargarPeliculas() {
     peliculasCaja.innerHTML = '';
 
@@ -28,3 +30,8 @@ async function CargarPeliculas() {
     }
 }
 
+// desde del formulario
+function mostrarFormularioPelicula(pelicula) {
+    
+
+}   
