@@ -3,17 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css" />
         <title>CRUD DE PELÍCULAS CON EXPRESS Y FETCH</title>
     </head>
 
     <body>
         <h1>New Movies</h1>
 
-        <form action="/anadir-pelicula" method="post" id="form-pelicula" >
+        <form action="/anadir-pelicula" method="post" id="form-pelicula">
             <label>
                 Título
                 <input
+                    id="titulo"
                     type="text"
                     name="titulo"
                     placeholder="Ej: Love"
@@ -24,6 +28,7 @@
             <label>
                 Director
                 <input
+                    id="director"
                     type="text"
                     name="director"
                     placeholder="Ej: abcdefd hijkl"
@@ -34,6 +39,7 @@
             <label>
                 Año
                 <input
+                id="anio"
                     type="number"
                     name="anio"
                     min="1800"
@@ -44,14 +50,18 @@
             </label>
 
             <div class="botones-form">
-                <button type="submit" class="btn-submit">
+                <button type="submit" class="btn-submit" id="btn-submit">
                     Guardar película
                 </button>
                 <button type="button" id="btn-cancelar" class="btn-cancelar">
                     Cancelar
                 </button>
             </div>
+
+            <input type="hidden" name="id" id="input-id">
+
         </form>
+        
         <ul class="caja-peliculas"></ul>
 
         <script src="app.js"></script>
