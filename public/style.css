@@ -60,10 +60,10 @@ input {
     text-transform: uppercase; /* mayusculas */
     color: #ffffff;
     font-size: 20px;
-    padding: 20px;
+    padding: 60px;
     list-style: none;
     letter-spacing: 4px;
-    border: none;
+    border: 1px solid #00f3ff;
     box-shadow: none;
     /* Destello ultra suave: un reflejo sutil que acompaña al H1 sin competir con él */
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.4);

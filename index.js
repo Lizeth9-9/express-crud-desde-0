@@ -70,7 +70,8 @@ app.get("/api/peliculas", (req, res) => {
 });
 
 app.post("/anadir-pelicula", (req, res) => {
-    const { titulo, director, anio } = req.body; //Recibe los datos de una nueva película desde un formulario
+    const { titulo, director } = req.body; //Recibe los datos de una nueva película desde un formulario
+    const anio = Number(req.body.anio); // Convertir el año a número
 
     if (!titulo || !director || !anio) {
         return res
@@ -91,6 +92,7 @@ app.post("/anadir-pelicula", (req, res) => {
 
 app.post("/editar-pelicula", (req, res) => {
     const { id, titulo, director, anio } = req.body;
+
 
     if (!id || !titulo || !director || !anio) {
         return res

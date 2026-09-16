@@ -44,7 +44,7 @@ function mostrarFormularioPelicula(peliculaId) {
     /*Usamos el operador de fusión nula(nullish coalescing operator) (??) para asignar un valor por defecto en caso de que la propiedad sea null o undefined */
     if (!pelicula) return;
 
-    inputTitulo.value = pelicula.titulo ?? "";
+    inputTitulo.value = pelicula.titulo ?? ""; 
     inputDirector.value = pelicula.director ?? "";
     inputAnio.value = pelicula.anio ?? "";
     inputId.value = pelicula.id ?? "";
